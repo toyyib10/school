@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="bootstrap.css">
+</head>
+<style>
+  .header{
+    border-bottom: 1px solid rgba(99, 95, 95, 0.375);
+  }
+</style>
+<body class="d-flex flex-column align-items-center justify-content-center pt-4">
+  <% if (message != "") { %>
+    <div class="alert alert-danger col-md-4 col-10 text-center"><%= message %> </div>
+  <% } else{ %>
+    <div></div>
+  <% } %>
+  <div class="col-md-4 col-10 d-flex align-items-center justify-content-center header">
+    <h1 class="fs-2 text-primary">Sign Up</h1>
+  </div>
+  <form action="/signUp" class="col-12 d-flex flex-column justify-content-center align-items-center" method="post">
+    <div class="form-floating mb-3 mt-5 col-md-4 col-10">
+      <input type="text" class="form-control" name="firstName" placeholder="First Name">
+      <label for="floatingInput">First Name</label>
+    </div>
+    <div class="form-floating mb-3 col-md-4 col-10">
+      <input type="text" class="form-control" name="lastName" placeholder="Last Name">
+      <label for="floatingInput">Last Name</label>
+    </div>
+    <div class="form-floating mb-3 col-md-4 col-10">
+      <input type="email" name="email" class="form-control" placeholder="name@example.com">
+      <label for="floatingInput">Email address</label>
+    </div>
+    <div class="form-floating mb-3 col-md-4 col-10">
+      <input type="password" name="password" class="form-control" placeholder="Password">
+      <label for="floatingPassword">Password</label>
+    </div>
+    <button class="col-md-2 btn btn-lg btn-primary mt-2 col-8" type="submit">Sign Up</button>
+  </form>
+</body>
+</html>

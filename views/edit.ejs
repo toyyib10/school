@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="bootstrap.css">
+</head>
+<style>
+  .header{
+    border-bottom: 1px solid rgba(99, 95, 95, 0.375);
+  }
+</style>
+<body class="d-flex flex-column align-items-center justify-content-center pt-4">
+    <% if (mes != "") { %>
+      <div class="alert alert-danger col-md-4 col-10 text-center"><%= mes %> </div>
+    <% } else{ %>
+      <div></div>
+    <% } %>
+  <div class="col-md-4 col-10 d-flex align-items-center justify-content-center header">
+    <h1 class="fs-2 text-primary">Edit</h1>
+  </div>
+  <form action="/savechanges" class="col-12 d-flex flex-column justify-content-center align-items-center" method="post">
+    <div class="form-floating mb-3 mt-5 col-md-4 col-10">
+        <input type="text" class="form-control" name="firstName" value="<%= changeResult.firstName%>">
+      <label for="floatingInput">First Name</label>
+    </div>
+    <div class="form-floating mb-3 col-md-4 col-10">
+      <input type="text" class="form-control" name="lastName" value="<%= changeResult.lastName%>">
+      <input type="hidden" class="form-control" name="email" value="<%= changeResult.email%>">
+      <input type="hidden" class="form-control" name="password" value="<%= changeResult.password%>">
+      <label for="floatingInput">Last Name</label>
+    </div>
+    <input type="hidden" name="">
+    <button class="col-md-2 btn btn-lg btn-primary mt-2 col-8" type="submit">Save changes</button>
+  </form>
+</body>
+</html>

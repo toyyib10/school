@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="bootstrap.css">
+  <title>Document</title>
+</head>
+<body>
+ 
+  <table class="table bg-primary text-white">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+      <% for( let index = 0; index < info.length; index++ ) { %>
+        <tr>
+          <th scope="row"><%= index + 1%> </th>
+          <td><%=info[index].firstName %></td>
+          <td><%=info[index].lastName %></td>
+          <td><%=info[index].email %></td>
+          <td>
+            <form action="/edit" method="post">
+              <input type="hidden" value="<%=info[index]._id%>" name="id">
+              <button class="btn bg-white text-primary">Edit</button>
+            </form>
+          </td>
+          <td>
+            <form action="/delete" method="post">
+              <input type="hidden" value="<%=info[index]._id%>" name="id">
+              <button class="btn bg-white text-primary">Delete</button>
+            </form>
+          </td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+
+</body>
+</html>
+
+
+
